@@ -75,7 +75,7 @@ namespace OSD
         SerialPort comPort = new SerialPort();
 
         Panels pan;
-        int nosdfunctions=0;
+        int nosdfunctions = 0;
         Tuple<string, Func<int, int, int>, int, int, int, int, int>[] panelItems = new Tuple<string, Func<int, int, int>, int, int, int, int, int>[32];
         Tuple<string, Func<int, int, int>, int, int, int, int, int>[] panelItems_default = new Tuple<string, Func<int, int, int>, int, int, int, int, int>[32];
         Tuple<string, Func<int, int, int>, int, int, int, int, int>[] panelItems2 = new Tuple<string, Func<int, int, int>, int, int, int, int, int>[32];
@@ -100,7 +100,8 @@ namespace OSD
                 bgpicture = Image.FromFile("vlcsnap-2012-01-28-07h46m04s95.png");
             }
             catch { }
-            for(int i = 0; i < npanel;i++) {
+            for (int i = 0; i < npanel; i++)
+            {
                 screen[i] = new Bitmap(30 * 12, 16 * 18);
                 gr[i] = Graphics.FromImage(screen[i]);
                 mousedown[i] = false;
@@ -120,7 +121,8 @@ namespace OSD
             if (pal)
             {
                 basesize = new Size(30, 16);
-                for(int i = 0; i < npanel;i++){
+                for (int i = 0; i < npanel; i++)
+                {
                     screen[i] = new Bitmap(30 * 12, 16 * 18);
                 }
                 image = new Bitmap(30 * 12, 16 * 18);
@@ -145,7 +147,7 @@ namespace OSD
                 NUM_Y2.Maximum = 15;
             }
 
-            
+
         }
         //Set item boxes
         void setupFunctions()
@@ -190,17 +192,17 @@ namespace OSD
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Home Altitude", pan.panHomeAlt, 22, 2, panHomeAlt_en_ADDR, panHomeAlt_x_ADDR, panHomeAlt_y_ADDR);
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Climb Rate", pan.panClimb, 1, 7, panClimb_en_ADDR, panClimb_x_ADDR, panClimb_y_ADDR);
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Battery Percent", pan.panBatteryPercent, 1, 5, panBatteryPercent_en_ADDR, panBatteryPercent_x_ADDR, panBatteryPercent_y_ADDR);
-            
+
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Current", pan.panCur_A, 1, 12, panCur_A_en_ADDR, panCur_A_x_ADDR, panCur_A_y_ADDR);
-            
+
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Velocity", pan.panVel, 1, 2, panVel_en_ADDR, panVel_x_ADDR, panVel_y_ADDR);
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Air Speed", pan.panAirSpeed, 1, 1, panAirSpeed_en_ADDR, panAirSpeed_x_ADDR, panAirSpeed_y_ADDR);
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Throttle", pan.panThr, 1, 4, panThr_en_ADDR, panThr_x_ADDR, panThr_y_ADDR);
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Flight Mode", pan.panFlightMode, 18, 13, panFMod_en_ADDR, panFMod_x_ADDR, panFMod_y_ADDR);
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Horizon", pan.panHorizon, 8, 6, panHorizon_en_ADDR, panHorizon_x_ADDR, panHorizon_y_ADDR);
-            
+
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Wind Speed", pan.panWindSpeed, 24, 7, panWindSpeed_en_ADDR, panWindSpeed_x_ADDR, panWindSpeed_y_ADDR);
-            
+
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Warnings", pan.panWarn, 9, 4, panWarn_en_ADDR, panWarn_x_ADDR, panWarn_y_ADDR);
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Time", pan.panTime, 22, 4, panTime_en_ADDR, panTime_x_ADDR, panTime_y_ADDR);
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("RSSI", pan.panRSSI, 12, 12, panRSSI_en_ADDR, panRSSI_x_ADDR, panRSSI_y_ADDR);
@@ -222,13 +224,13 @@ namespace OSD
             {
                 if (thing != null)
                 {
-                    
+
                     if (thing.Item1 == "Center")
                     {
                         LIST_items.Items.Add(thing.Item1, false);
 
                     }
-                    
+
                     else if (thing.Item1 == "Tune")
                     {
                         LIST_items.Items.Add(thing.Item1, false);
@@ -371,7 +373,7 @@ namespace OSD
             this.nTSCToolStripMenuItem_CheckStateChanged(EventArgs.Empty, EventArgs.Empty);
 
             CMB_ComPort.Text = "COM5";
-        }          
+        }
 
         private string[] GetPortNames()
         {
@@ -469,7 +471,7 @@ namespace OSD
             }
 
         }
-            
+
 
         string getMouseOverItem(int x, int y)
         {
@@ -524,7 +526,7 @@ namespace OSD
             xpos = Constrain(ansW, 0, 30 - 1);
             ypos = Constrain(ansH, 0, 16 - 1);
         }
-        
+
         void getCharLoc2(int x, int y, out int xpos, out int ypos)
         {
 
@@ -782,8 +784,8 @@ namespace OSD
             {
                 if (thing != null && thing.Item1 == item)
                 {
-                        NUM_X.Value = Constrain(thing.Item3,0,basesize.Width -1);
-                        NUM_Y.Value = Constrain(thing.Item4,0,16 -1);
+                    NUM_X.Value = Constrain(thing.Item3, 0, basesize.Width - 1);
+                    NUM_Y.Value = Constrain(thing.Item4, 0, 16 - 1);
                 }
             }
         }
@@ -851,8 +853,8 @@ namespace OSD
             }
 
             // add a delay to this so it runs after the control value has been defined.
-                if (this.IsHandleCreated)
-                    this.BeginInvoke((MethodInvoker)delegate { osdDraw1(); });
+            if (this.IsHandleCreated)
+                this.BeginInvoke((MethodInvoker)delegate { osdDraw1(); });
         }
 
         private void checkedListBox2_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -963,11 +965,11 @@ namespace OSD
         //Write data to MinimOSD EPPROM
         private void BUT_WriteOSD_Click(object sender, EventArgs e)
         {
-            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;        
+            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;
             this.toolStripStatusLabel1.Text = "";
-           
+
             TabPage current = PANEL_tabs.SelectedTab;
-            if (current.Text == "Panel 1") 
+            if (current.Text == "Panel 1")
             {
                 //First Panel 
                 foreach (string str in this.LIST_items.Items)
@@ -985,7 +987,7 @@ namespace OSD
                     }
                 }
             }
-            else if (current.Text == "Panel 2") 
+            else if (current.Text == "Panel 2")
             {
                 //Second Panel 
                 foreach (string str in this.LIST_items2.Items)
@@ -1003,7 +1005,7 @@ namespace OSD
                     }
                 }
             }
-            else if (current.Text == "Config") 
+            else if (current.Text == "Config")
             {
                 //Setup configuration panel
                 eeprom[measure_ADDR] = pan.converts;
@@ -1019,7 +1021,7 @@ namespace OSD
                 eeprom[switch_mode_ADDR] = pan.switch_mode;
 
                 eeprom[PAL_NTSC_ADDR] = pan.pal_ntsc;
-                
+
                 eeprom[OSD_BATT_WARN_ADDR] = pan.batt_warn_level;
                 eeprom[OSD_RSSI_WARN_ADDR] = pan.rssi_warn_level;
 
@@ -1032,7 +1034,7 @@ namespace OSD
                     eeprom[OSD_CALL_SIGN_ADDR + i] = Convert.ToByte(pan.callsign_str[i]);
                     Console.WriteLine("Call Sign ", i, " is ", eeprom[OSD_CALL_SIGN_ADDR + i]);
                 }
-                if(pan.callsign_str.Length < OSD_CALL_SIGN_TOTAL) 
+                if (pan.callsign_str.Length < OSD_CALL_SIGN_TOTAL)
                     for (int i = pan.callsign_str.Length; i < OSD_CALL_SIGN_TOTAL; i++) eeprom[OSD_CALL_SIGN_ADDR + i] = Convert.ToByte('\0');
             }
             ArduinoSTK sp;
@@ -1062,14 +1064,16 @@ namespace OSD
                     bool spupload_flag = false;
                     //nav_up = sp.upload(eeprom, 0, OffsetBITpanel * npanel, 0);
                     //conf_up = sp.upload(eeprom, measure_ADDR, (OSD_RSSI_LOW_ADDR - measure_ADDR), measure_ADDR);
-                    if (current.Text == "Panel 1") {
-                        for(int i = 0; i < 10; i++)
+                    if (current.Text == "Panel 1")
+                    {
+                        for (int i = 0; i < 10; i++)
                         { //try to upload two times if it fail
                             spupload_flag = sp.upload(eeprom, (short)0, (short)OffsetBITpanel, (short)0);
-                            if (!spupload_flag) {
-                                if (sp.keepalive()) Console.WriteLine("keepalive successful (iter "+ i + ")");
+                            if (!spupload_flag)
+                            {
+                                if (sp.keepalive()) Console.WriteLine("keepalive successful (iter " + i + ")");
                                 else Console.WriteLine("keepalive fail (iter " + i + ")");
-                            } 
+                            }
                             else break;
                         }
                         if (spupload_flag) MessageBox.Show("Done writing Panel 1 data!");
@@ -1104,9 +1108,10 @@ namespace OSD
                         }
                         if (spupload_flag) MessageBox.Show("Done writing configuration data!");
                         else MessageBox.Show("Failed to upload new configuration data");
-                    } 
-                }                 
-                catch (Exception ex) {
+                    }
+                }
+                catch (Exception ex)
+                {
                     MessageBox.Show(ex.Message);
                 }
             }
@@ -1211,8 +1216,9 @@ namespace OSD
                 try
                 {
                     bool spupload_flag = false;
-                    for (int i = 0; i < 10; i++) { //try to upload two times if it fail
-                        spupload_flag = sp.upload(eeprom, 0,CHK_VERSION + 1, 0);
+                    for (int i = 0; i < 10; i++)
+                    { //try to upload two times if it fail
+                        spupload_flag = sp.upload(eeprom, 0, CHK_VERSION + 1, 0);
                         if (!spupload_flag)
                         {
                             if (sp.keepalive()) Console.WriteLine("keepalive successful (iter " + i + ")");
@@ -1222,7 +1228,7 @@ namespace OSD
                     }
                     if (spupload_flag) MessageBox.Show("Done writing configuration data!");
                     else MessageBox.Show("Failed to upload new configuration data");
-                    }
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
@@ -1404,8 +1410,8 @@ namespace OSD
 
         private void BUT_ReadOSD_Click(object sender, EventArgs e)
         {
-            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;        
-            this.toolStripStatusLabel1.Text = ""; 
+            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;
+            this.toolStripStatusLabel1.Text = "";
 
             bool fail = false;
             ArduinoSTK sp;
@@ -1422,7 +1428,7 @@ namespace OSD
 
                 sp.Open();
             }
-            catch {  MessageBox.Show("Error opening com port", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);        return; }
+            catch { MessageBox.Show("Error opening com port", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
 
             if (sp.connectAP())
             {
@@ -1439,7 +1445,8 @@ namespace OSD
                         else break;
                     }
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     MessageBox.Show(ex.Message);
                 }
             }
@@ -1452,7 +1459,8 @@ namespace OSD
             sp.Close();
 
             //Verify EEPROM version
-            if (eeprom[CHK_VERSION] != VER) { // no match
+            if (eeprom[CHK_VERSION] != VER)
+            { // no match
                 MessageBox.Show("The EEPROM mapping is outdated! An automatic update will start.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 BUT_ResetOSD_EEPROM(); //write defaults
                 MessageBox.Show("EEPROM mapping updated!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1500,7 +1508,8 @@ namespace OSD
                 UNITS_combo.SelectedIndex = 1; //imperial
                 STALL_label.Text = "Stall Speed (mph)";
                 OVERSPEED_label.Text = "Overspeed (mph)";
-            } else //garbage value in EEPROM - default to metric
+            }
+            else //garbage value in EEPROM - default to metric
             {
                 pan.converts = 0; //correct value
                 UNITS_combo.SelectedIndex = 0; //metric
@@ -1546,13 +1555,14 @@ namespace OSD
             BRIGHTNESScomboBox.SelectedIndex = pan.osd_brightness;
 
             char[] str_call = new char[OSD_CALL_SIGN_TOTAL];
-            for (int i = 0; i < OSD_CALL_SIGN_TOTAL; i++){
+            for (int i = 0; i < OSD_CALL_SIGN_TOTAL; i++)
+            {
                 str_call[i] = Convert.ToChar(eeprom[OSD_CALL_SIGN_ADDR + i]);
                 Console.WriteLine("Call Sign read ", i, " is ", eeprom[OSD_CALL_SIGN_ADDR + i]);
             }
 
             pan.callsign_str = new string(str_call);
-            CALLSIGNmaskedText.Text = pan.callsign_str;               
+            CALLSIGNmaskedText.Text = pan.callsign_str;
 
             this.pALToolStripMenuItem_CheckStateChanged(EventArgs.Empty, EventArgs.Empty);
             this.nTSCToolStripMenuItem_CheckStateChanged(EventArgs.Empty, EventArgs.Empty);
@@ -1733,10 +1743,10 @@ namespace OSD
                         //Panel 1
                         string stringh = sr.ReadLine(); //
                         //while (!sr.EndOfStream)
-                        for( int i = 0; i < nosdfunctions; i++)
+                        for (int i = 0; i < nosdfunctions; i++)
                         {
-                            string[] strings = sr.ReadLine().Split(new char[] {'\t'},StringSplitOptions.RemoveEmptyEntries);
-                            for (int a = 0; a < panelItems.Length ; a++)
+                            string[] strings = sr.ReadLine().Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                            for (int a = 0; a < panelItems.Length; a++)
                             {
                                 if (panelItems[a] != null && panelItems[a].Item1 == strings[0])
                                 {
@@ -1866,7 +1876,7 @@ namespace OSD
 
             mousedown[0] = false;
         }
-        
+
         private void pictureBox2_MouseUp(object sender, MouseEventArgs e)
         {
             getMouseOverItem2(e.X, e.Y);
@@ -1932,12 +1942,12 @@ namespace OSD
             mousedown[1] = true;
         }
 
-                
+
 
         private void updateFirmwareToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;      
-            this.toolStripStatusLabel1.Text = ""; 
+            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;
+            this.toolStripStatusLabel1.Text = "";
 
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "*.hex|*.hex";
@@ -2039,7 +2049,7 @@ namespace OSD
                     toolStripStatusLabel1.Text = "Failed";
                 }
             }
-            
+
             //Check EEPROM version
             this.BUT_ReadOSD_Click(EventArgs.Empty, EventArgs.Empty);
 
@@ -2091,8 +2101,8 @@ namespace OSD
 
                 BinaryReader br = new BinaryReader(ofd.OpenFile());
 
-                this.toolStripProgressBar1.Style = ProgressBarStyle.Marquee;        
-                this.toolStripStatusLabel1.Text = "Sending TLOG data..."; 
+                this.toolStripProgressBar1.Style = ProgressBarStyle.Marquee;
+                this.toolStripStatusLabel1.Text = "Sending TLOG data...";
 
                 while (br.BaseStream.Position < br.BaseStream.Length && !this.IsDisposed)
                 {
@@ -2115,7 +2125,7 @@ namespace OSD
                 try
                 {
                     toolStripProgressBar1.Style = ProgressBarStyle.Continuous;
-                    toolStripStatusLabel1.Text = "";   
+                    toolStripStatusLabel1.Text = "";
 
                     comPort.Close();
                 }
@@ -2195,19 +2205,19 @@ namespace OSD
 
         private void updateFontToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;        
-            toolStripStatusLabel1.Text = "";        
+            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;
+            toolStripStatusLabel1.Text = "";
 
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "mcm|*.mcm";
 
             ofd.ShowDialog();
-            
+
             if (ofd.FileName != "")
             {
                 if (comPort.IsOpen)
                     comPort.Close();
-                
+
                 try
                 {
 
@@ -2366,12 +2376,14 @@ namespace OSD
 
         private void UNITS_combo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(UNITS_combo.SelectedIndex == 0) {
+            if (UNITS_combo.SelectedIndex == 0)
+            {
                 pan.converts = 0; //metric
                 STALL_label.Text = "Stall Speed (km/h)";
                 OVERSPEED_label.Text = "Overspeed (km/h)";
             }
-            else if (UNITS_combo.SelectedIndex == 1){
+            else if (UNITS_combo.SelectedIndex == 1)
+            {
                 pan.converts = 1; //imperial
                 STALL_label.Text = "Stall Speed (mph)";
                 OVERSPEED_label.Text = "Overspeed (mph)";
@@ -2380,7 +2392,7 @@ namespace OSD
 
         private void MINVOLT_numeric_ValueChanged(object sender, EventArgs e)
         {
-            pan.battv = (byte) (MINVOLT_numeric.Value * 10);
+            pan.battv = (byte)(MINVOLT_numeric.Value * 10);
         }
 
         private void ONOFF_combo_SelectedIndexChanged(object sender, EventArgs e)
@@ -2433,7 +2445,7 @@ namespace OSD
 
         private void BRIGHTNESScomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pan.osd_brightness = (byte)BRIGHTNESScomboBox.SelectedIndex ;
+            pan.osd_brightness = (byte)BRIGHTNESScomboBox.SelectedIndex;
         }
 
         private void gettingStartedToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2450,6 +2462,11 @@ namespace OSD
             //MessageBox.Show("Author: Michael Oborne \nCo-authors: Pedro Santos \n Zoltán Gábor", "About ArduCAM OSD Config", MessageBoxButtons.OK, MessageBoxIcon.Information);
             AboutBox1 about = new AboutBox1();
             about.Show();
+        }
+
+        private void visiteMutcopnetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
